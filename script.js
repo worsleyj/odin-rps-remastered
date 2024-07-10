@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let roundAmount = 5;
 
 function getComputerChoice() {
     let randomSelection = Math.floor(Math.random() * 3);
@@ -55,4 +56,20 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-playRound(getComputerChoice(), getPlayerChoice());
+function playRPS() {
+    for (let i = 0; i < roundAmount; i++) {
+        playRound(getComputerChoice(), getPlayerChoice())
+        console.log("Your score is: " + playerScore);
+        console.log("The computer score is: " + computerScore);
+    }
+    if (playerScore == computerScore) {
+        console.log("It's a draw!");
+    } else if (playerScore > computerScore) {
+        console.log("The player wins!");
+    } else {
+        console.log("The computer wins!")
+    }
+    console.log("Want to play again? Try refreshing the page.");
+}
+
+playRPS();
