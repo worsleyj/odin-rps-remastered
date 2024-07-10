@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let randomSelection = Math.floor(Math.random() * 3);
 
@@ -33,17 +36,23 @@ function RockPaperScissors(computerChoice, playerChoice) {
         console.log("It's a draw! You both selected " + computerChoice);
     } else if (computerChoice == "Rock" && playerChoice == "Paper") {
         console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+        playerScore++;
     } else if (computerChoice == "Paper" && playerChoice == "Scissors") {
         console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+        playerScore++;
     } else if (computerChoice == "Scissors" && playerChoice == "Rock") {
         console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+        playerScore++;
     } else if (computerChoice == "Rock" && playerChoice == "Scissors") {
         console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+        computerScore++;
     } else if (computerChoice == "Paper" && playerChoice == "Rock") {
         console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+        computerScore++;
     } else if (computerChoice == "Scissors" && playerChoice == "Paper") {
         console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+        computerScore++;
     }
 }
 
-RockPaperScissors(getComputerChoice(), getPlayerChoice());
+//RockPaperScissors(getComputerChoice(), getPlayerChoice());
