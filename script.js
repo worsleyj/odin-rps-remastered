@@ -22,10 +22,10 @@ function getPlayerChoice() {
         return "Paper";
     } else if (playerSelection == "S") {
         return "Scissors";
-    } else return "error"
+    } else return "error";
 }
 
-function RockPaperScissors(computerChoice, playerChoice) {
+function playRound(computerChoice, playerChoice) {
     if (playerChoice == "error") { 
         console.log("Your input was invalid! Try again.");
     } else { 
@@ -55,4 +55,4 @@ function RockPaperScissors(computerChoice, playerChoice) {
     }
 }
 
-//RockPaperScissors(getComputerChoice(), getPlayerChoice());
+playRound(getComputerChoice(), getPlayerChoice());
