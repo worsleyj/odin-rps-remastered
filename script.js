@@ -19,8 +19,31 @@ function getPlayerChoice() {
         return "Paper";
     } else if (playerSelection == "S") {
         return "Scissors";
+    } else return "error"
+}
+
+function RockPaperScissors(computerChoice, playerChoice) {
+    if (playerChoice == "error") { 
+        console.log("Your input was invalid! Try again.");
+    } else { 
+        console.log("You selected: " + playerChoice);}
+    console.log("The computer selected: " + computerChoice);
+
+    if (computerChoice == playerChoice) {
+        console.log("It's a draw! You both selected " + computerChoice);
+    } else if (computerChoice == "Rock" && playerChoice == "Paper") {
+        console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+    } else if (computerChoice == "Paper" && playerChoice == "Scissors") {
+        console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+    } else if (computerChoice == "Scissors" && playerChoice == "Rock") {
+        console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+    } else if (computerChoice == "Rock" && playerChoice == "Scissors") {
+        console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+    } else if (computerChoice == "Paper" && playerChoice == "Rock") {
+        console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+    } else if (computerChoice == "Scissors" && playerChoice == "Paper") {
+        console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
     }
 }
 
-console.log(getComputerChoice());
-console.log(getPlayerChoice());
+RockPaperScissors(getComputerChoice(), getPlayerChoice());
