@@ -5,6 +5,8 @@ let roundAmount = 5;
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const results = document.querySelector(".results");
+const log = document.querySelector(".log");
 
 rock.addEventListener("click", () => {
     playRound(getComputerChoice(), "Rock")
@@ -42,6 +44,12 @@ function getPlayerChoice() {
     } else return "error";
 }
 
+function logResult() {
+    const newLog = document.createElement("li");
+    newLog.textContent = results.textContent;
+    log.appendChild(newLog);
+}
+
 function playRound(computerChoice, playerChoice) {
     if (playerChoice == "error") { 
         console.log("Your input was invalid! Try again.");
@@ -50,40 +58,32 @@ function playRound(computerChoice, playerChoice) {
     console.log("The computer selected: " + computerChoice);
 
     if (computerChoice == playerChoice) {
-        console.log("It's a draw! You both selected " + computerChoice);
+        logResult();
+        results.textContent = ("It's a draw! You both selected " + computerChoice);
     } else if (computerChoice == "Rock" && playerChoice == "Paper") {
-        console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+        logResult();
+        results.textContent = ("You won! " + playerChoice + " beats " + computerChoice + ".");
         playerScore++;
     } else if (computerChoice == "Paper" && playerChoice == "Scissors") {
-        console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+        logResult();
+        results.textContent = ("You won! " + playerChoice + " beats " + computerChoice + ".");
         playerScore++;
     } else if (computerChoice == "Scissors" && playerChoice == "Rock") {
-        console.log("You won! " + playerChoice + " beats " + computerChoice + ".");
+        logResult();
+        results.textContent = ("You won! " + playerChoice + " beats " + computerChoice + ".");
         playerScore++;
     } else if (computerChoice == "Rock" && playerChoice == "Scissors") {
-        console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+        logResult();
+        results.textContent = ("You lost! " + playerChoice + " loses to " + computerChoice + ".");
         computerScore++;
     } else if (computerChoice == "Paper" && playerChoice == "Rock") {
-        console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+        logResult();
+        results.textContent = ("You lost! " + playerChoice + " loses to " + computerChoice + ".");
         computerScore++;
     } else if (computerChoice == "Scissors" && playerChoice == "Paper") {
-        console.log("You lost! " + playerChoice + " loses to " + computerChoice + ".");
+        logResult();
+        results.textContent = ("You lost! " + playerChoice + " loses to " + computerChoice + ".");
         computerScore++;
     }
 }
 
-// function playRPS() {
-//     for (let i = 0; i < roundAmount; i++) {
-//         playRound(getComputerChoice(), getPlayerChoice())
-//         console.log("Your score is: " + playerScore);
-//         console.log("The computer score is: " + computerScore);
-//     }
-//     if (playerScore == computerScore) {
-//         console.log("It's a draw!");
-//     } else if (playerScore > computerScore) {
-//         console.log("The player wins!");
-//     } else {
-//         console.log("The computer wins!")
-//     }
-//     console.log("Want to play again? Try refreshing the page.");
-// }
