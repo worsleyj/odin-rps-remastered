@@ -2,6 +2,22 @@ let playerScore = 0;
 let computerScore = 0;
 let roundAmount = 5;
 
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+rock.addEventListener("click", () => {
+    playRound(getComputerChoice(), "Rock")
+})
+
+paper.addEventListener("click", () => {
+    playRound(getComputerChoice(), "Paper")
+})
+
+scissors.addEventListener("click", () => {
+    playRound(getComputerChoice(), "Scissors")
+})
+
 function getComputerChoice() {
     let randomSelection = Math.floor(Math.random() * 3);
 
@@ -11,7 +27,7 @@ function getComputerChoice() {
         return "Paper";
     } else if (randomSelection == 2) {
         return "Scissors";
-    } else return "error"
+    } else return "error";
 }
 
 function getPlayerChoice() {
@@ -56,20 +72,18 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-function playRPS() {
-    for (let i = 0; i < roundAmount; i++) {
-        playRound(getComputerChoice(), getPlayerChoice())
-        console.log("Your score is: " + playerScore);
-        console.log("The computer score is: " + computerScore);
-    }
-    if (playerScore == computerScore) {
-        console.log("It's a draw!");
-    } else if (playerScore > computerScore) {
-        console.log("The player wins!");
-    } else {
-        console.log("The computer wins!")
-    }
-    console.log("Want to play again? Try refreshing the page.");
-}
-
-playRPS();
+// function playRPS() {
+//     for (let i = 0; i < roundAmount; i++) {
+//         playRound(getComputerChoice(), getPlayerChoice())
+//         console.log("Your score is: " + playerScore);
+//         console.log("The computer score is: " + computerScore);
+//     }
+//     if (playerScore == computerScore) {
+//         console.log("It's a draw!");
+//     } else if (playerScore > computerScore) {
+//         console.log("The player wins!");
+//     } else {
+//         console.log("The computer wins!")
+//     }
+//     console.log("Want to play again? Try refreshing the page.");
+// }
