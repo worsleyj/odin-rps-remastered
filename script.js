@@ -1,6 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
-let roundAmount = 5;
+let playerWins = 0;
+let computerWins = 0;
 
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
@@ -8,6 +9,7 @@ const scissors = document.querySelector(".scissors");
 const results = document.querySelector(".results");
 const log = document.querySelector(".log");
 const scoreDisplay = document.querySelector(".score");
+const winCounter = document.querySelector(".wins");
 
 rock.addEventListener("click", () => {
     playRound(getComputerChoice(), "Rock")
@@ -51,6 +53,28 @@ function logResult() {
     log.appendChild(newLog);
 }
 
+function countWins() {
+    if (playerWins > 0 || computerWins > 0) {
+        winCounter.textContent = ("Player wins: " + playerWins + ", Computer wins: " + computerWins);
+    }
+}
+
+function checkWinner() {
+    if (computerScore == 5) {
+        alert("Computer wins with 5 points!");
+        computerWins++;
+        countWins();
+        computerScore = 0;
+        playerScore = 0;
+    } else if (playerScore == 5) {
+        alert("Player wins with 5 points!");
+        playerWins++;
+        countWins();
+        computerScore = 0;
+        playerScore = 0;
+    }
+}
+
 function playRound(computerChoice, playerChoice) {
     if (playerChoice == "error") { 
         console.log("Your input was invalid! Try again.");
@@ -88,5 +112,6 @@ function playRound(computerChoice, playerChoice) {
     }
 
     scoreDisplay.textContent = ("Player score: " + playerScore + ", Computer score: " + computerScore);
+    checkWinner();
 }
 
