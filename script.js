@@ -10,6 +10,7 @@ const results = document.querySelector(".results");
 const log = document.querySelector(".log");
 const scoreDisplay = document.querySelector(".score");
 const winCounter = document.querySelector(".wins");
+const clearLog = document.querySelector(".clear-log");
 
 rock.addEventListener("click", () => {
     playRound(getComputerChoice(), "Rock")
@@ -21,6 +22,12 @@ paper.addEventListener("click", () => {
 
 scissors.addEventListener("click", () => {
     playRound(getComputerChoice(), "Scissors")
+})
+
+clearLog.addEventListener("click", () => {
+    while(log.firstChild) {
+        log.removeChild(log.lastChild);
+    }
 })
 
 function getComputerChoice() {
