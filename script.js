@@ -7,6 +7,7 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const results = document.querySelector(".results");
 const log = document.querySelector(".log");
+const scoreDisplay = document.querySelector(".score");
 
 rock.addEventListener("click", () => {
     playRound(getComputerChoice(), "Rock")
@@ -85,5 +86,7 @@ function playRound(computerChoice, playerChoice) {
         results.textContent = ("You lost! " + playerChoice + " loses to " + computerChoice + ".");
         computerScore++;
     }
+
+    scoreDisplay.textContent = ("Player score: " + playerScore + ", Computer score: " + computerScore);
 }
 
